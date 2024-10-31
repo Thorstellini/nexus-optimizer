@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Optimizer</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    /* Set background with no border or margin */
+    body {
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      margin: 0; /* No margin */
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+      overflow: hidden;
+      position: relative; /* Added for background blur */
+    }
+
+    /* Background blur effect */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: inherit; /* Use the same background as the body */
+      z-index: -1;
+      filter: blur(10px); /* Increased blur effect */
+      transition: filter 0.3s ease;
+    }
+
+    /* Flex container for side-by-side boxes */
+    .container {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      z-index: 1; /* Ensure boxes are above the blur */
+    }
+
+    /* Gray box with macOS-style border */
+    .embed-box {
+      position: relative;
+      background-color: #2c2f33;
+      color: #fff;
+      padding: 35px;
+      border-radius: 10px;
+      border: 1px solid #555;
+      width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      transform: scale(1);
+    }
+
+    /* Hover effect for scale */
+    .embed-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      z-index: 2;
+    }
+
+    /* macOS-style window buttons */
+    .window-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .button {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .button-close { background-color: #ff605c; }
+    .button-minimize { background-color: #ffbd44; }
+
+    .button-close::before {
+      content: '✖';
+      color: black;
+      font-size: 14px;
+    }
+
+    .button-minimize::before {
+      content: '−';
+      color: black;
+      font-size: 14px;
+    }
+
+    /* Title style */
+    .embed-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #C000FF;
+      text-align: center;
+      margin-bottom: 15px;
+      margin-top: 20px;
+      white-space: nowrap;
+    }
+
+    .embed-box p {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      line-height: 1.4;
+    }
+
+    .embed-box p i {
+      margin-right: 8px;
+      font-style: normal;
+    }
+
+    .price {
+      margin-top: 15px;
+      color: #fff;
+    }
+
+    .price b {
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .free-version code,
+    .premium-version code {
+      font-size: 18px;
+      color: #43b581;
+      font-weight: bold;
+    }
+
+    /* Button style */
+    .download-btn {
+      display: block;
+      margin-top: 20px;
+      padding: 12px 0;
+      text-align: center;
+      background-color: #C000FF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background-color: #a000d4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left box for Free version -->
+    <div class="embed-box embed-box-left">
+      <!-- macOS-style window control buttons -->
+      <div class="window-controls">
+        <span class="button button-minimize"></span>
+        <span class="button button-close"></span>
+      </div>
+      <div class="embed-title">NEXUS OPTIMIZER (FREE)</div>
+      <div>
+        <p><i>🚀</i> <b>Windows 10 & 11</b></p>
+        <p><i>💻</i> <b>All Desktop Computers and Laptops</b></p>
+        <p><i>🛡️</i> <b>Tested</b></p>
+        <p><i>🏆</i> <b>Maximize the performance of Windows</b></p>
+        <p><i>✅</i> <b>Windows Tweaks</b></p>
+        <p><i>❌</i> <b>Hardware Tweaks</b></p>
+        <p><i>❌</i> <b>Internet Tweaks</b></p>
+        <p><i>❌</i> <b>Game Tweaks</b></p>
+        <p><i>❌</i> <b>Debloater</b></p>
+        <p><i>✅</i> <b>Extras</b></p>
+        <p><i>❌</i> <b>BIOS tweaking services</b></p>
+      </div>
+      <div class="price">
+        <p><b>🛒 Price:</b></p>
+        <p class="free-version"><b>Free Version ></b> <code>0,00€</code></p>
+      </div>
+      <a href="https://discord.gg/9AzWUzVtcj" class="download-btn" target="_blank" rel="noopener noreferrer">Discord</a>
+    </div>
+
+    <!-- Right box for Premium version -->
+    <div class="embed-box embed-box-right">
+      <!-- macOS-style window control buttons -->
+      <div class="window-controls">
+        <span class="button button-minimize"></span>
+        <span class="button button-close"></span>
+      </div>
+    <div class="embed-title">NEXUS OPTIMIZER (Premium)</div>
+      <div>
+        <p><i>🚀</i> <b>Windows 10 & 11</b></p>
+        <p><i>💻</i> <b>All Desktop Computers and Laptops</b></p>
+        <p><i>🛡️</i> <b>Tested</b></p>
+        <p><i>⭐</i> <b>weekly new updates</b></p>
+        <p><i>💥</i> <b>Lifetime access</b></p>
+        <p><i>📞</i> <b>24/7 customer support (Customer Status)</b></p>
+        <p><i>🏆</i> <b>Maximizes the performance of the entire system (Windows/CPU/GPU/RAM...)</b></p>
+        <p><i>✅</i> <b>Windows Tweaks</b></p>
+        <p><i>✅</i> <b>Hardware Tweaks</b></p>
+        <p><i>✅</i> <b>Internet Tweaks</b></p>
+        <p><i>✅</i> <b>Game Tweaks</b></p>
+        <p><i>✅</i> <b>Debloater</b></p>
+        <p><i>✅</i> <b>Extras</b></p>
+        <p><i>✅</i> <b>BIOS tweaking services</b></p>
+      </div>
+      <div class="price">
+        <p><b>🛒 Price:</b></p>
+        <p class="premium-version"><b>Premium Version ></b> <code>9,99€</code></p>
+      </div>
+      <a href="https://discord.gg/9AzWUzVtcj" class="download-btn" target="_blank" rel="noopener noreferrer">Discord</a>
+    </div>
+  </div>
+</body>
+</html>
